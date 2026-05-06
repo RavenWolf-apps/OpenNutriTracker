@@ -3,20 +3,13 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:opennutritracker/core/data/data_source/user_activity_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/app_theme_dbo.dart';
 import 'package:opennutritracker/core/data/dbo/config_dbo.dart';
 import 'package:opennutritracker/core/data/dbo/intake_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/intake_type_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/physical_activity_dbo.dart';
 import 'package:opennutritracker/core/data/dbo/meal_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/meal_nutriments_dbo.dart';
 import 'package:opennutritracker/core/data/dbo/recipe_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/recipe_ingredient_dbo.dart';
 import 'package:opennutritracker/core/data/dbo/tracked_day_dbo.dart';
 import 'package:opennutritracker/core/data/dbo/user_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/user_gender_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/user_pal_dbo.dart';
-import 'package:opennutritracker/core/data/dbo/user_weight_goal_dbo.dart';
+import 'package:opennutritracker/hive_registrar.g.dart';
 
 class HiveDBProvider extends ChangeNotifier {
   static const configBoxName = 'ConfigBox';
@@ -45,23 +38,13 @@ class HiveDBProvider extends ChangeNotifier {
   Future<void> initHiveDB(Uint8List encryptionKey) async {
     final encryptionCypher = HiveAesCipher(encryptionKey);
     await Hive.initFlutter();
-    Hive.registerAdapter(ConfigDBOAdapter());
-    Hive.registerAdapter(IntakeDBOAdapter());
-    Hive.registerAdapter(MealDBOAdapter());
-    Hive.registerAdapter(MealNutrimentsDBOAdapter());
-    Hive.registerAdapter(MealSourceDBOAdapter());
-    Hive.registerAdapter(IntakeTypeDBOAdapter());
-    Hive.registerAdapter(UserDBOAdapter());
-    Hive.registerAdapter(UserGenderDBOAdapter());
-    Hive.registerAdapter(UserWeightGoalDBOAdapter());
-    Hive.registerAdapter(UserPALDBOAdapter());
-    Hive.registerAdapter(TrackedDayDBOAdapter());
-    Hive.registerAdapter(UserActivityDBOAdapter());
-    Hive.registerAdapter(PhysicalActivityDBOAdapter());
-    Hive.registerAdapter(PhysicalActivityTypeDBOAdapter());
-    Hive.registerAdapter(AppThemeDBOAdapter());
-    Hive.registerAdapter(RecipeDBOAdapter());
-    Hive.registerAdapter(RecipeIngredientDBOAdapter());
+    // Delegate to the generated registrar so any new DBO type added to
+    // the project is registered automatically on the next `just build`.
+    // Registering by hand had drifted out of sync — `CaloriesProfileDBO`
+    // (#7 on UserDBO) was missing, causing every save with a non-null
+    // hormone profile to throw, which the previous broken async chains
+    // swallowed silently. Result: profile reset to null on app relaunch.
+    Hive.registerAdapters();
 
     configBox = await Hive.openBox(
       configBoxName,
