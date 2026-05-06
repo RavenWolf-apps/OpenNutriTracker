@@ -18,7 +18,7 @@ class AddConfigUsecase {
   Future<void> setConfigHasAcceptedAnonymousData(
     bool hasAcceptedAnonymousData,
   ) async {
-    _configRepository.setConfigHasAcceptedAnonymousData(
+    await _configRepository.setConfigHasAcceptedAnonymousData(
       hasAcceptedAnonymousData,
     );
   }
@@ -28,11 +28,11 @@ class AddConfigUsecase {
   }
 
   Future<void> setConfigUsesImperialUnits(bool usesImperialUnits) async {
-    _configRepository.setConfigUsesImperialUnits(usesImperialUnits);
+    await _configRepository.setConfigUsesImperialUnits(usesImperialUnits);
   }
 
   Future<void> setConfigKcalAdjustment(double kcalAdjustment) async {
-    _configRepository.setConfigKcalAdjustment(kcalAdjustment);
+    await _configRepository.setConfigKcalAdjustment(kcalAdjustment);
   }
 
   Future<void> setConfigMacroGoalPct(
@@ -40,7 +40,11 @@ class AddConfigUsecase {
     double proteinGoalPct,
     double fatPctGoal,
   ) async {
-    _configRepository.setUserMacroPct(carbGoalPct, proteinGoalPct, fatPctGoal);
+    await _configRepository.setUserMacroPct(
+      carbGoalPct,
+      proteinGoalPct,
+      fatPctGoal,
+    );
   }
 
 

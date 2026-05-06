@@ -39,24 +39,33 @@ class _CaloriesProfileInfoDialogState extends State<CaloriesProfileInfoDialog> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 16),
-            RadioGroup<CaloriesProfileEntity>(
-              groupValue: _selected,
-              onChanged: (value) {
-                if (value != null) {
-                  setState(() => _selected = value);
-                }
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  for (final profile in CaloriesProfileEntity.values)
-                    RadioListTile<CaloriesProfileEntity>(
-                      value: profile,
-                      contentPadding: EdgeInsets.zero,
-                      title: Text(profile.getName(context)),
-                    ),
-                ],
-              ),
+            // Use the per-tile groupValue/onChanged form rather than a
+            // RadioGroup ancestor: the ancestor form does not always
+            // propagate taps to RadioListTile children (the bug surfaced
+            // here was that switching estrogen ↔ testosterone produced
+            // no kcal change because OK kept returning the initial value).
+            // The per-tile API is marked deprecated in newer SDKs, but it
+            // is the only form that captures the selection reliably.
+            // ignore: deprecated_member_use
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (final profile in CaloriesProfileEntity.values)
+                  // ignore: deprecated_member_use
+                  RadioListTile<CaloriesProfileEntity>(
+                    value: profile,
+                    // ignore: deprecated_member_use
+                    groupValue: _selected,
+                    // ignore: deprecated_member_use
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() => _selected = value);
+                      }
+                    },
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(profile.getName(context)),
+                  ),
+              ],
             ),
           ],
         ),
