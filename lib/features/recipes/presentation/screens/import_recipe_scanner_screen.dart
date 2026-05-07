@@ -85,14 +85,12 @@ class _ImportRecipeScannerScreenState extends State<ImportRecipeScannerScreen> {
   }
 
   Future<void> _processCode(String raw) async {
-    // Idempotent set — _onDetect flips the flag synchronously
-    // before calling here, but the paste-code dialog path doesn't,
-    // so this still needs to set it. The previous early-return
-    // guard would short-circuit the camera path now that _onDetect
-    // sets the flag, leaving the finally block unreached and the
-    // flag stuck at true.
+    // Idempotent set — _onDetect flips the flag synchronously before
+    // calling here, but the paste-code dialog path doesn't, so this
+    // still needs to set it.
     setState(() => _isProcessing = true);
 
+    var didPop = false;
     try {
       final payload = SharedRecipePayload.fromJsonString(raw);
       if (!mounted) return;
@@ -102,6 +100,7 @@ class _ImportRecipeScannerScreenState extends State<ImportRecipeScannerScreen> {
         locator<RecipesBloc>().add(const LoadRecipesEvent());
         if (mounted) {
           Navigator.of(context).pop();
+          didPop = true;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(S.of(context).importRecipeSuccessLabel)),
           );
@@ -114,7 +113,15 @@ class _ImportRecipeScannerScreenState extends State<ImportRecipeScannerScreen> {
         );
       }
     } finally {
-      if (mounted) setState(() => _isProcessing = false);
+      // Don't reset the flag on the success-and-pop path. Navigator.pop
+      // schedules the pop for the next frame, so a buffered onDetect
+      // that mobile_scanner emits in the same microtask would otherwise
+      // pass the gate and show a second confirm dialog — except by
+      // then the scanner has popped, so the dialog appears on the
+      // recipes screen.
+      if (mounted && !didPop) {
+        setState(() => _isProcessing = false);
+      }
     }
   }
 
