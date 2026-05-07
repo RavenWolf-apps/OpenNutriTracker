@@ -58,6 +58,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m18(count) => "删除 ${count} 个食谱？";
 
+
+  static String m19(count) => "导入 ${count} 项活动？";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activityExample":
@@ -69,12 +72,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("信息由\n\'2024年体力活动指南\'\n提供"),
         "additionalInfoLabelCustom":
             MessageLookupByLibrary.simpleMessage("自定义餐食项目"),
-        "additionalInfoLabelRecipe":
-            MessageLookupByLibrary.simpleMessage("自定义食谱"),
         "additionalInfoLabelFDC":
             MessageLookupByLibrary.simpleMessage("更多信息请查看\nFoodData Central"),
         "additionalInfoLabelOFF":
             MessageLookupByLibrary.simpleMessage("更多信息请查看\nOpenFoodFacts"),
+        "additionalInfoLabelRecipe":
+            MessageLookupByLibrary.simpleMessage("自定义食谱"),
         "additionalInfoLabelUnknown":
             MessageLookupByLibrary.simpleMessage("未知餐食项目"),
         "ageLabel": MessageLookupByLibrary.simpleMessage("年龄"),
@@ -127,6 +130,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseWeeklyWeightGoalLabel":
             MessageLookupByLibrary.simpleMessage("每周体重速率"),
         "chooseWeightGoalLabel": MessageLookupByLibrary.simpleMessage("选择体重目标"),
+        "clearOffCacheConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "移除本地缓存的 Open Food Facts 和 FDC 搜索及扫描结果。缓存会在您搜索和扫描产品时自动重建。您的自定义餐食不会受影响。"),
+        "clearOffCacheConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("清除缓存？"),
+        "clearOffCacheLabel":
+            MessageLookupByLibrary.simpleMessage("清除缓存"),
+        "clearOffCacheSubtitle": m14,
         "cmLabel": MessageLookupByLibrary.simpleMessage("厘米"),
         "codeCopiedLabel": MessageLookupByLibrary.simpleMessage("代码已复制"),
         "copyCodeLabel": MessageLookupByLibrary.simpleMessage("复制代码"),
@@ -139,11 +149,29 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("您想创建自定义餐食项目吗？"),
         "createCustomDialogTitle":
             MessageLookupByLibrary.simpleMessage("创建自定义餐食项目？"),
+        "createRecipeTitle": MessageLookupByLibrary.simpleMessage("创建食谱"),
+        "csvImportContributeOffAndroidLink":
+            MessageLookupByLibrary.simpleMessage("Android"),
+        "csvImportContributeOffIosLink":
+            MessageLookupByLibrary.simpleMessage("iOS"),
+        "csvImportContributeOffPrefix": MessageLookupByLibrary.simpleMessage(
+            "有条形码？请把产品贡献到 Open Food Facts："),
+        "csvImportErrorLabel": MessageLookupByLibrary.simpleMessage(
+            "无法读取 CSV 文件。请检查格式后重试。"),
+        "csvImportPartialLabel": m13,
+        "csvImportSuccessLabel": m12,
+        "customMealsDeleteConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "所有使用此餐食的日记条目也将被删除。"),
+        "customMealsDeleteConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("删除自定义餐食？"),
+        "customMealsEmptyLabel":
+            MessageLookupByLibrary.simpleMessage("尚未保存自定义餐食。"),
         "dailyKcalAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("每日卡路里调整："),
         "dataCollectionLabel":
             MessageLookupByLibrary.simpleMessage("通过提供匿名使用数据支持开发"),
         "deleteAllLabel": MessageLookupByLibrary.simpleMessage("删除全部"),
+        "deleteSelectedRecipesConfirmTitle": m18,
         "deleteTimeDialogContent":
             MessageLookupByLibrary.simpleMessage("您想删除选定的项目吗？"),
         "deleteTimeDialogPluralContent":
@@ -155,15 +183,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogCopyLabel": MessageLookupByLibrary.simpleMessage("复制到今天"),
         "dialogDeleteLabel": MessageLookupByLibrary.simpleMessage("删除"),
         "dialogOKLabel": MessageLookupByLibrary.simpleMessage("确定"),
-        "diaryLabel": MessageLookupByLibrary.simpleMessage("日记"),
         "diaryFutureDateWarning":
             MessageLookupByLibrary.simpleMessage("您正在编辑未来的日期"),
+        "diaryLabel": MessageLookupByLibrary.simpleMessage("日记"),
         "dinnerExample": MessageLookupByLibrary.simpleMessage("例如：汤、鸡肉、葡萄酒..."),
         "dinnerLabel": MessageLookupByLibrary.simpleMessage("晚餐"),
+        "discardChangesConfirmLabel":
+            MessageLookupByLibrary.simpleMessage("放弃"),
+        "discardChangesContent":
+            MessageLookupByLibrary.simpleMessage("您未保存的更改将丢失。"),
+        "discardChangesTitle":
+            MessageLookupByLibrary.simpleMessage("放弃更改？"),
         "disclaimerText": MessageLookupByLibrary.simpleMessage(
             "OpenNutriTracker不是医疗应用程序。提供的所有数据均未经验证，应谨慎使用。请保持健康的生活方式，如有任何问题请咨询专业人士。不建议在患病、怀孕或哺乳期使用。"),
+        "downloadSampleCsvAction":
+            MessageLookupByLibrary.simpleMessage("示例餐食 (csv)"),
+        "downloadSampleRecipesCsvAction":
+            MessageLookupByLibrary.simpleMessage("示例食谱 (csv)"),
+        "duplicateMealDialogContent":
+            MessageLookupByLibrary.simpleMessage("此食物今天已添加到此餐次。再次添加？"),
+        "duplicateRecipeLabel":
+            MessageLookupByLibrary.simpleMessage("复制"),
+        "duplicateRecipeNameSuffix":
+            MessageLookupByLibrary.simpleMessage("（副本）"),
         "editItemDialogTitle": MessageLookupByLibrary.simpleMessage("编辑项目"),
         "editMealLabel": MessageLookupByLibrary.simpleMessage("编辑餐食"),
+        "editRecipeTitle": MessageLookupByLibrary.simpleMessage("编辑食谱"),
         "energyLabel": MessageLookupByLibrary.simpleMessage("能量"),
         "errorFetchingProductData":
             MessageLookupByLibrary.simpleMessage("获取产品数据时出错"),
@@ -175,56 +220,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("打开浏览器应用时出错"),
         "errorOpeningEmail": MessageLookupByLibrary.simpleMessage("打开邮件应用时出错"),
         "errorProductNotFound": MessageLookupByLibrary.simpleMessage("未找到产品"),
-        "customMealsDeleteConfirmContent": MessageLookupByLibrary.simpleMessage(
-            "所有使用此餐食的日记条目也将被删除。"),
-        "customMealsDeleteConfirmTitle":
-            MessageLookupByLibrary.simpleMessage("删除自定义餐食？"),
-        "customMealsEmptyLabel":
-            MessageLookupByLibrary.simpleMessage("尚未保存自定义餐食。"),
-        "ironLabel": MessageLookupByLibrary.simpleMessage("铁"),
-        "magnesiumLabel": MessageLookupByLibrary.simpleMessage("镁"),
-        "micronutrientsLabel": MessageLookupByLibrary.simpleMessage("微量营养素"),
-        "monounsaturatedFatLabel": MessageLookupByLibrary.simpleMessage("单不饱和脂肪"),
-        "niacinLabel": MessageLookupByLibrary.simpleMessage("烟酸 (B3)"),
-        "phosphorusLabel": MessageLookupByLibrary.simpleMessage("磷"),
-        "polyunsaturatedFatLabel": MessageLookupByLibrary.simpleMessage("多不饱和脂肪"),
-        "potassiumLabel": MessageLookupByLibrary.simpleMessage("钾"),
-        "settingsCustomMealsLabel":
-            MessageLookupByLibrary.simpleMessage("自定义餐食"),
-        "clearOffCacheConfirmContent": MessageLookupByLibrary.simpleMessage(
-            "移除本地缓存的 Open Food Facts 和 FDC 搜索及扫描结果。缓存会在您搜索和扫描产品时自动重建。您的自定义餐食不会受影响。"),
-        "clearOffCacheConfirmTitle":
-            MessageLookupByLibrary.simpleMessage("清除缓存？"),
-        "clearOffCacheLabel":
-            MessageLookupByLibrary.simpleMessage("清除缓存"),
-        "clearOffCacheSubtitle": m14,
-        "csvImportContributeOffAndroidLink":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "csvImportContributeOffIosLink":
-            MessageLookupByLibrary.simpleMessage("iOS"),
-        "csvImportContributeOffPrefix": MessageLookupByLibrary.simpleMessage(
-            "有条形码？请把产品贡献到 Open Food Facts："),
-        "csvImportErrorLabel": MessageLookupByLibrary.simpleMessage(
-            "无法读取 CSV 文件。请检查格式后重试。"),
-        "csvImportPartialLabel": m13,
-        "csvImportSuccessLabel": m12,
-        "downloadSampleCsvAction":
-            MessageLookupByLibrary.simpleMessage("示例餐食 (csv)"),
-        "downloadSampleRecipesCsvAction":
-            MessageLookupByLibrary.simpleMessage("示例食谱 (csv)"),
-        "importMealsCsvAction":
-            MessageLookupByLibrary.simpleMessage("导入餐食 (csv)"),
         "exportAction": MessageLookupByLibrary.simpleMessage("导出"),
+        "exportImportAppDataLabel":
+            MessageLookupByLibrary.simpleMessage("导出 / 导入应用数据"),
         "exportImportDescription": MessageLookupByLibrary.simpleMessage(
             "您可以将应用数据导出到zip文件并稍后导入。这在您想要备份数据或传输到另一台设备时很有用。\n\n应用不会使用任何云服务存储您的数据。"),
         "exportImportErrorLabel":
             MessageLookupByLibrary.simpleMessage("导出/导入错误"),
-        "exportImportAppDataLabel":
-            MessageLookupByLibrary.simpleMessage("导出 / 导入应用数据"),
-        "importCustomFoodDataLabel":
-            MessageLookupByLibrary.simpleMessage("导入自定义食品数据"),
-        "importCustomFoodDataDescription": MessageLookupByLibrary.simpleMessage(
-            "从 CSV 文件导入您自己的餐食。下载示例查看所需的列格式和必填字段。"),
         "exportImportSuccessLabel":
             MessageLookupByLibrary.simpleMessage("导出/导入成功"),
         "fatLabel": MessageLookupByLibrary.simpleMessage("脂肪"),
@@ -245,15 +247,36 @@ class MessageLookup extends MessageLookupByLibrary {
         "heightLabel": MessageLookupByLibrary.simpleMessage("身高"),
         "homeLabel": MessageLookupByLibrary.simpleMessage("主页"),
         "importAction": MessageLookupByLibrary.simpleMessage("导入"),
+        "importActivityConfirmContent":
+            MessageLookupByLibrary.simpleMessage("这些活动将被添加到今天。"),
+        "importActivityConfirmTitle": m19,
+        "importActivityLabel": MessageLookupByLibrary.simpleMessage("导入共享运动"),
+        "importActivitySuccessLabel":
+            MessageLookupByLibrary.simpleMessage("运动已导入"),
+        "importCustomFoodDataDescription": MessageLookupByLibrary.simpleMessage(
+            "从 CSV 文件导入您自己的餐食。下载示例查看所需的列格式和必填字段。"),
+        "importCustomFoodDataLabel":
+            MessageLookupByLibrary.simpleMessage("导入自定义食品数据"),
         "importMealConfirmContent": m5,
         "importMealConfirmTitle": m4,
         "importMealErrorLabel": MessageLookupByLibrary.simpleMessage("无效的二维码"),
         "importMealLabel": MessageLookupByLibrary.simpleMessage("导入分享的餐食"),
         "importMealSuccessLabel": MessageLookupByLibrary.simpleMessage("餐食已导入"),
+        "importMealsCsvAction":
+            MessageLookupByLibrary.simpleMessage("导入餐食 (csv)"),
         "importOffFetchFailedLabel": m6,
+        "importRecipeConfirmContent": m16,
+        "importRecipeErrorLabel":
+            MessageLookupByLibrary.simpleMessage("无法解析食谱代码"),
+        "importRecipeLabel": MessageLookupByLibrary.simpleMessage("导入食谱"),
+        "importRecipeSuccessLabel":
+            MessageLookupByLibrary.simpleMessage("食谱已导入"),
+        "importRecipesCsvAction":
+            MessageLookupByLibrary.simpleMessage("导入食谱 (csv)"),
         "infoAddedActivityLabel":
             MessageLookupByLibrary.simpleMessage("添加了新活动"),
         "infoAddedIntakeLabel": MessageLookupByLibrary.simpleMessage("添加了新摄入"),
+        "ironLabel": MessageLookupByLibrary.simpleMessage("铁"),
         "itemDeletedSnackbar": MessageLookupByLibrary.simpleMessage("项目已删除"),
         "itemUpdatedSnackbar": MessageLookupByLibrary.simpleMessage("项目已更新"),
         "kcalLabel": MessageLookupByLibrary.simpleMessage("卡路里"),
@@ -265,6 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "lunchLabel": MessageLookupByLibrary.simpleMessage("午餐"),
         "macroDistributionLabel":
             MessageLookupByLibrary.simpleMessage("宏量营养素分布："),
+        "magnesiumLabel": MessageLookupByLibrary.simpleMessage("镁"),
         "mealBrandsLabel": MessageLookupByLibrary.simpleMessage("品牌"),
         "mealCarbsLabel": MessageLookupByLibrary.simpleMessage("碳水每"),
         "mealFatLabel": MessageLookupByLibrary.simpleMessage("脂肪每"),
@@ -281,9 +305,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "mealSizeLabelImperial":
             MessageLookupByLibrary.simpleMessage("餐食大小 (盎司/液量盎司)"),
         "mealUnitLabel": MessageLookupByLibrary.simpleMessage("餐食单位"),
+        "micronutrientsLabel": MessageLookupByLibrary.simpleMessage("微量营养素"),
         "milliliterUnit": MessageLookupByLibrary.simpleMessage("ml"),
         "missingProductInfo":
             MessageLookupByLibrary.simpleMessage("产品缺少必要的卡路里或宏量营养素信息"),
+        "monounsaturatedFatLabel": MessageLookupByLibrary.simpleMessage("单不饱和脂肪"),
+        "newCustomMealLabel":
+            MessageLookupByLibrary.simpleMessage("新建自定义食物"),
+        "niacinLabel": MessageLookupByLibrary.simpleMessage("烟酸 (B3)"),
         "noActivityRecentlyAddedLabel":
             MessageLookupByLibrary.simpleMessage("最近未添加活动"),
         "noMealsRecentlyAddedLabel":
@@ -361,6 +390,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingYourMacrosGoalLabel":
             MessageLookupByLibrary.simpleMessage("您的宏量营养素目标："),
         "ozUnit": MessageLookupByLibrary.simpleMessage("oz"),
+        "paActiveVideoGames": MessageLookupByLibrary.simpleMessage("体感视频游戏"),
+        "paActiveVideoGamesDesc":
+            MessageLookupByLibrary.simpleMessage("Wii Sports、跳舞机，一般"),
+        "paAmericanFootballGeneral": MessageLookupByLibrary.simpleMessage("美式橄榄球"),
+        "paAmericanFootballGeneralDesc": MessageLookupByLibrary.simpleMessage("触身赛、旗式足球，一般"),
         "paArcheryGeneral": MessageLookupByLibrary.simpleMessage("射箭"),
         "paArcheryGeneralDesc": MessageLookupByLibrary.simpleMessage("非狩猎"),
         "paAutoRacing": MessageLookupByLibrary.simpleMessage("赛车"),
@@ -413,6 +447,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "paCricketDesc": MessageLookupByLibrary.simpleMessage("击球、投球、防守"),
         "paCroquet": MessageLookupByLibrary.simpleMessage("槌球"),
         "paCroquetDesc": MessageLookupByLibrary.simpleMessage("一般"),
+        "paCrossCountrySkiing": MessageLookupByLibrary.simpleMessage("越野滑雪"),
+        "paCrossCountrySkiingDesc":
+            MessageLookupByLibrary.simpleMessage("越野滑雪，一般"),
         "paCurling": MessageLookupByLibrary.simpleMessage("冰壶"),
         "paCurlingDesc": MessageLookupByLibrary.simpleMessage("一般"),
         "paDancingAerobicGeneral": MessageLookupByLibrary.simpleMessage("有氧舞蹈"),
@@ -432,8 +469,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("跳板或跳台"),
         "paFencing": MessageLookupByLibrary.simpleMessage("击剑"),
         "paFencingDesc": MessageLookupByLibrary.simpleMessage("一般"),
-        "paAmericanFootballGeneral": MessageLookupByLibrary.simpleMessage("美式橄榄球"),
-        "paAmericanFootballGeneralDesc": MessageLookupByLibrary.simpleMessage("触身赛、旗式足球，一般"),
         "paFrisbee": MessageLookupByLibrary.simpleMessage("飞盘"),
         "paFrisbeeDesc": MessageLookupByLibrary.simpleMessage("一般"),
         "paGeneralDesc": MessageLookupByLibrary.simpleMessage("一般"),
@@ -502,6 +537,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("越野摩托运动，全地形车，一般"),
         "paMountainClimbing": MessageLookupByLibrary.simpleMessage("攀岩"),
         "paMountainClimbingDesc": MessageLookupByLibrary.simpleMessage("攀岩或登山"),
+        "paNordicWalking": MessageLookupByLibrary.simpleMessage("北欧式健走"),
         "paOrienteering": MessageLookupByLibrary.simpleMessage("定向越野"),
         "paOrienteeringDesc": MessageLookupByLibrary.simpleMessage("一般"),
         "paPaddleBoarding": MessageLookupByLibrary.simpleMessage("桨板"),
@@ -510,6 +546,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "paPaddleBoatDesc": MessageLookupByLibrary.simpleMessage("一般"),
         "paPaddleball": MessageLookupByLibrary.simpleMessage(" paddleball"),
         "paPaddleballDesc": MessageLookupByLibrary.simpleMessage("休闲，一般"),
+        "paPickleball": MessageLookupByLibrary.simpleMessage("匹克球"),
+        "paPilates": MessageLookupByLibrary.simpleMessage("普拉提"),
         "paPoloHorse": MessageLookupByLibrary.simpleMessage("马球"),
         "paPoloHorseDesc": MessageLookupByLibrary.simpleMessage("骑马"),
         "paRacquetball": MessageLookupByLibrary.simpleMessage("壁球"),
@@ -517,6 +555,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "paResistanceTraining": MessageLookupByLibrary.simpleMessage("阻力训练"),
         "paResistanceTrainingDesc":
             MessageLookupByLibrary.simpleMessage("举重，自由重量，诺德士或万能器材"),
+        "paResistanceTrainingVigorous":
+            MessageLookupByLibrary.simpleMessage("力量训练（剧烈）"),
+        "paResistanceTrainingVigorousDesc":
+            MessageLookupByLibrary.simpleMessage("剧烈强度，力量举或健美"),
         "paRodeoSportGeneralModerate":
             MessageLookupByLibrary.simpleMessage("牛仔竞技"),
         "paRodeoSportGeneralModerateDesc":
@@ -559,6 +601,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "paSnowShovingModerate": MessageLookupByLibrary.simpleMessage("铲雪"),
         "paSnowShovingModerateDesc":
             MessageLookupByLibrary.simpleMessage("手工，中等强度"),
+        "paSnowshoeing": MessageLookupByLibrary.simpleMessage("雪鞋健行"),
         "paSoccerGeneral": MessageLookupByLibrary.simpleMessage("足球"),
         "paSoccerGeneralDesc": MessageLookupByLibrary.simpleMessage("休闲，一般"),
         "paSoftballBaseballGeneral":
@@ -567,6 +610,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("快投或慢投，一般"),
         "paSquashGeneral": MessageLookupByLibrary.simpleMessage("壁球"),
         "paSquashGeneralDesc": MessageLookupByLibrary.simpleMessage("一般"),
+        "paStretching": MessageLookupByLibrary.simpleMessage("拉伸"),
+        "paStretchingDesc": MessageLookupByLibrary.simpleMessage("轻度，一般"),
         "paSurfing": MessageLookupByLibrary.simpleMessage("冲浪"),
         "paSurfingDesc": MessageLookupByLibrary.simpleMessage("身体或板，一般"),
         "paSwimmingGeneral": MessageLookupByLibrary.simpleMessage("游泳"),
@@ -588,6 +633,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("（例如：障碍跑、跨栏）"),
         "paTrampolineLight": MessageLookupByLibrary.simpleMessage("蹦床"),
         "paTrampolineLightDesc": MessageLookupByLibrary.simpleMessage("娱乐"),
+        "paTreadmillRunning": MessageLookupByLibrary.simpleMessage("跑步机跑步"),
+        "paTreadmillRunningDesc":
+            MessageLookupByLibrary.simpleMessage("跑步机上,一般"),
         "paUnicyclingGeneral": MessageLookupByLibrary.simpleMessage("独轮车"),
         "paUnicyclingGeneralDesc": MessageLookupByLibrary.simpleMessage("一般"),
         "paVolleyballGeneral": MessageLookupByLibrary.simpleMessage("排球"),
@@ -628,6 +676,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pasteCodeLabel": MessageLookupByLibrary.simpleMessage("粘贴代码"),
         "per100gmlLabel": MessageLookupByLibrary.simpleMessage("每 100克/毫升"),
         "perServingLabel": MessageLookupByLibrary.simpleMessage("每份量"),
+        "phosphorusLabel": MessageLookupByLibrary.simpleMessage("磷"),
+        "polyunsaturatedFatLabel": MessageLookupByLibrary.simpleMessage("多不饱和脂肪"),
+        "potassiumLabel": MessageLookupByLibrary.simpleMessage("钾"),
         "privacyPolicyLabel": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "profileLabel": MessageLookupByLibrary.simpleMessage("个人资料"),
         "proteinLabel": MessageLookupByLibrary.simpleMessage("蛋白质"),
@@ -635,81 +686,56 @@ class MessageLookup extends MessageLookupByLibrary {
         "quantityLabel": MessageLookupByLibrary.simpleMessage("数量"),
         "readLabel": MessageLookupByLibrary.simpleMessage("我已阅读并接受隐私政策。"),
         "recentlyAddedLabel": MessageLookupByLibrary.simpleMessage("最近"),
-        "recipesLabel": MessageLookupByLibrary.simpleMessage("食谱"),
-        "recipesEmptyLabel": MessageLookupByLibrary.simpleMessage("暂无食谱"),
-        "recipesEmptyHint": MessageLookupByLibrary.simpleMessage(
-            "用多种食材组合一道餐品，像普通食物一样重复使用。"),
-        "createRecipeTitle": MessageLookupByLibrary.simpleMessage("创建食谱"),
-        "newCustomMealLabel":
-            MessageLookupByLibrary.simpleMessage("新建自定义食物"),
-        "discardChangesTitle":
-            MessageLookupByLibrary.simpleMessage("放弃更改？"),
-        "discardChangesContent":
-            MessageLookupByLibrary.simpleMessage("您未保存的更改将丢失。"),
-        "discardChangesConfirmLabel":
-            MessageLookupByLibrary.simpleMessage("放弃"),
-        "editRecipeTitle": MessageLookupByLibrary.simpleMessage("编辑食谱"),
-        "recipeNameLabel": MessageLookupByLibrary.simpleMessage("食谱名称"),
-        "recipeDescriptionLabel":
-            MessageLookupByLibrary.simpleMessage("描述（可选）"),
-        "recipeServingsCountLabel":
-            MessageLookupByLibrary.simpleMessage("份数（可选）"),
-        "recipeServingsCountHelper":
-            MessageLookupByLibrary.simpleMessage("允许按份记录此食谱，而非按克。"),
-        "recipeIngredientsLabel": MessageLookupByLibrary.simpleMessage("食材"),
         "recipeAddIngredientLabel":
             MessageLookupByLibrary.simpleMessage("添加食材"),
-        "recipeNoIngredientsLabel":
-            MessageLookupByLibrary.simpleMessage("暂无食材"),
-        "recipeTotalWeightLabel":
-            MessageLookupByLibrary.simpleMessage("总重量（克）"),
-        "recipeTotalWeightHelper": MessageLookupByLibrary.simpleMessage(
-            "默认值为食材之和。液体按 1 毫升 ≈ 1 克近似计算。"),
-        "recipeNutritionPreviewLabel":
-            MessageLookupByLibrary.simpleMessage("营养（总计）"),
-        "recipeNutritionPer100Label":
-            MessageLookupByLibrary.simpleMessage("每 100 克"),
+        "recipeDeleteConfirmContent":
+            MessageLookupByLibrary.simpleMessage("从此食谱记录的历史日记条目将保留。"),
+        "recipeDeleteConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("删除食谱？"),
+        "recipeDescriptionLabel":
+            MessageLookupByLibrary.simpleMessage("描述（可选）"),
         "recipeIngredientAmountLabel":
             MessageLookupByLibrary.simpleMessage("数量"),
+        "recipeIngredientCountLabel": m15,
         "recipeIngredientUnitLabel":
             MessageLookupByLibrary.simpleMessage("单位"),
-        "recipeSaveLabel": MessageLookupByLibrary.simpleMessage("保存食谱"),
-        "recipeSaveErrorLabel":
-            MessageLookupByLibrary.simpleMessage("无法保存食谱。"),
+        "recipeIngredientsLabel": MessageLookupByLibrary.simpleMessage("食材"),
+        "recipeInvalidTotalWeightLabel":
+            MessageLookupByLibrary.simpleMessage("总重量必须大于零"),
+        "recipeLogCtaLabel": MessageLookupByLibrary.simpleMessage("记录此食谱"),
+        "recipeNameLabel": MessageLookupByLibrary.simpleMessage("食谱名称"),
         "recipeNameRequiredLabel":
             MessageLookupByLibrary.simpleMessage("食谱需要一个名称"),
         "recipeNeedsIngredientsLabel":
             MessageLookupByLibrary.simpleMessage("至少添加一种食材"),
-        "recipeInvalidTotalWeightLabel":
-            MessageLookupByLibrary.simpleMessage("总重量必须大于零"),
-        "shareRecipeLabel": MessageLookupByLibrary.simpleMessage("分享食谱"),
-        "duplicateRecipeLabel":
-            MessageLookupByLibrary.simpleMessage("复制"),
-        "duplicateRecipeNameSuffix":
-            MessageLookupByLibrary.simpleMessage("（副本）"),
-        "recipeTagsLabel": MessageLookupByLibrary.simpleMessage("标签"),
+        "recipeNoIngredientsLabel":
+            MessageLookupByLibrary.simpleMessage("暂无食材"),
+        "recipeNutritionPer100Label":
+            MessageLookupByLibrary.simpleMessage("每 100 克"),
+        "recipeNutritionPreviewLabel":
+            MessageLookupByLibrary.simpleMessage("营养（总计）"),
+        "recipeSaveErrorLabel":
+            MessageLookupByLibrary.simpleMessage("无法保存食谱。"),
+        "recipeSaveLabel": MessageLookupByLibrary.simpleMessage("保存食谱"),
+        "recipeServingsCountHelper":
+            MessageLookupByLibrary.simpleMessage("允许按份记录此食谱，而非按克。"),
+        "recipeServingsCountLabel":
+            MessageLookupByLibrary.simpleMessage("份数（可选）"),
         "recipeTagsHelper":
             MessageLookupByLibrary.simpleMessage("用逗号分隔，例如\"早餐，素食\""),
+        "recipeTagsLabel": MessageLookupByLibrary.simpleMessage("标签"),
+        "recipeTotalWeightHelper": MessageLookupByLibrary.simpleMessage(
+            "默认值为食材之和。液体按 1 毫升 ≈ 1 克近似计算。"),
+        "recipeTotalWeightLabel":
+            MessageLookupByLibrary.simpleMessage("总重量（克）"),
+        "recipesEmptyHint": MessageLookupByLibrary.simpleMessage(
+            "用多种食材组合一道餐品，像普通食物一样重复使用。"),
+        "recipesEmptyLabel": MessageLookupByLibrary.simpleMessage("暂无食谱"),
         "recipesFilterAllLabel":
             MessageLookupByLibrary.simpleMessage("全部"),
-        "importRecipesCsvAction":
-            MessageLookupByLibrary.simpleMessage("导入食谱 (csv)"),
-        "selectionCountLabel": m17,
-        "deleteSelectedRecipesConfirmTitle": m18,
-        "importRecipeLabel": MessageLookupByLibrary.simpleMessage("导入食谱"),
-        "importRecipeSuccessLabel":
-            MessageLookupByLibrary.simpleMessage("食谱已导入"),
-        "importRecipeErrorLabel":
-            MessageLookupByLibrary.simpleMessage("无法解析食谱代码"),
+        "recipesLabel": MessageLookupByLibrary.simpleMessage("食谱"),
         "recipesLoadErrorLabel":
             MessageLookupByLibrary.simpleMessage("无法加载食谱。请稍后重试。"),
-        "importRecipeConfirmContent": m16,
-        "recipeDeleteConfirmTitle":
-            MessageLookupByLibrary.simpleMessage("删除食谱？"),
-        "recipeDeleteConfirmContent":
-            MessageLookupByLibrary.simpleMessage("从此食谱记录的历史日记条目将保留。"),
-        "recipeLogCtaLabel": MessageLookupByLibrary.simpleMessage("记录此食谱"),
-        "recipeIngredientCountLabel": m15,
         "reportErrorDialogText":
             MessageLookupByLibrary.simpleMessage("您想向开发者报告错误吗？"),
         "retryLabel": MessageLookupByLibrary.simpleMessage("重试"),
@@ -725,6 +751,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectPalCategoryLabel":
             MessageLookupByLibrary.simpleMessage("选择活动水平"),
         "selectWeightDialogLabel": MessageLookupByLibrary.simpleMessage("选择体重"),
+        "selectionCountLabel": m17,
         "sendAnonymousUserData":
             MessageLookupByLibrary.simpleMessage("发送匿名使用数据"),
         "servingLabel": MessageLookupByLibrary.simpleMessage("份量"),
@@ -735,6 +762,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingAboutLabel": MessageLookupByLibrary.simpleMessage("关于"),
         "settingFeedbackLabel": MessageLookupByLibrary.simpleMessage("反馈"),
         "settingsCalculationsLabel": MessageLookupByLibrary.simpleMessage("计算"),
+        "settingsCustomMealsLabel":
+            MessageLookupByLibrary.simpleMessage("自定义餐食"),
         "settingsDisclaimerLabel": MessageLookupByLibrary.simpleMessage("免责声明"),
         "settingsDistanceLabel": MessageLookupByLibrary.simpleMessage("距离"),
         "settingsImperialLabel":
@@ -765,8 +794,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("系统默认"),
         "settingsUnitsLabel": MessageLookupByLibrary.simpleMessage("单位"),
         "settingsVolumeLabel": MessageLookupByLibrary.simpleMessage("体积"),
+        "shareActivityLabel": MessageLookupByLibrary.simpleMessage("分享运动"),
         "shareCodeLabel": MessageLookupByLibrary.simpleMessage("分享代码"),
         "shareMealLabel": MessageLookupByLibrary.simpleMessage("分享餐食"),
+        "shareRecipeLabel": MessageLookupByLibrary.simpleMessage("分享食谱"),
         "snackExample":
             MessageLookupByLibrary.simpleMessage("例如：苹果、冰淇淋、巧克力..."),
         "snackLabel": MessageLookupByLibrary.simpleMessage("零食"),
@@ -780,6 +811,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "vitaminB6Label": MessageLookupByLibrary.simpleMessage("维生素 B6"),
         "vitaminCLabel": MessageLookupByLibrary.simpleMessage("维生素 C"),
         "vitaminDLabel": MessageLookupByLibrary.simpleMessage("维生素 D"),
+        "warningLabel": MessageLookupByLibrary.simpleMessage("警告"),
         "weeklyWeightGoalKgPerWeek": m8,
         "weeklyWeightGoalLabel":
             MessageLookupByLibrary.simpleMessage("每周速率"),
