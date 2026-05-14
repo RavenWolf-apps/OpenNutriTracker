@@ -1077,5 +1077,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Denný cieľ vitamínu D v mikrogramoch. Predvolená referencia je 15 µg."),
         "settingsVitaminDGoalLabel":
             MessageLookupByLibrary.simpleMessage("Cieľ vitamínu D"),
+        "diarySortByCarbs":
+            MessageLookupByLibrary.simpleMessage("Sacharidy (od najvyšších)"),
+        "diarySortByFat":
+            MessageLookupByLibrary.simpleMessage("Tuky (od najvyšších)"),
+        "diarySortByKcal":
+            MessageLookupByLibrary.simpleMessage("Kalórie (od najvyšších)"),
+        "diarySortByLabel":
+            MessageLookupByLibrary.simpleMessage("Zoradiť podľa"),
+        "diarySortByProtein":
+            MessageLookupByLibrary.simpleMessage("Bielkoviny (od najvyšších)"),
+        "diarySortByTime":
+            MessageLookupByLibrary.simpleMessage("Času pridania"),
       };
 }

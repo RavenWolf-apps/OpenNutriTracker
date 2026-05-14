@@ -136,6 +136,8 @@ Future<void> initLocator() async {
       locator(),
       locator(),
       locator(),
+      locator(),
+      locator(),
     ),
   );
   locator.registerLazySingleton<ProfileBloc>(

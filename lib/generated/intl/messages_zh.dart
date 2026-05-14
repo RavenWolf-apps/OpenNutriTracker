@@ -939,5 +939,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "weightLabel": MessageLookupByLibrary.simpleMessage("体重"),
         "yearsLabel": m3,
         "zincLabel": MessageLookupByLibrary.simpleMessage("锌"),
+        "diarySortByCarbs":
+            MessageLookupByLibrary.simpleMessage("碳水化合物（从高到低）"),
+        "diarySortByFat": MessageLookupByLibrary.simpleMessage("脂肪（从高到低）"),
+        "diarySortByKcal":
+            MessageLookupByLibrary.simpleMessage("卡路里（从高到低）"),
+        "diarySortByLabel": MessageLookupByLibrary.simpleMessage("排序方式"),
+        "diarySortByProtein":
+            MessageLookupByLibrary.simpleMessage("蛋白质（从高到低）"),
+        "diarySortByTime": MessageLookupByLibrary.simpleMessage("添加时间"),
       };
 }

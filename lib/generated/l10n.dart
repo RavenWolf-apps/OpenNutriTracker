@@ -2342,11 +2342,31 @@ class S {
     );
   }
 
+  /// `Sort by`
+  String get diarySortByLabel {
+    return Intl.message(
+      'Sort by',
+      name: 'diarySortByLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Only nutrients tracked on the meals you logged are summed here. A meal missing a value contributes nothing to that nutrient — so these totals may underreport.`
   String get diaryNutrientPanelDataDisclaimer {
     return Intl.message(
       'Only nutrients tracked on the meals you logged are summed here. A meal missing a value contributes nothing to that nutrient — so these totals may underreport.',
       name: 'diaryNutrientPanelDataDisclaimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time added`
+  String get diarySortByTime {
+    return Intl.message(
+      'Time added',
+      name: 'diarySortByTime',
       desc: '',
       args: [],
     );
@@ -2362,6 +2382,16 @@ class S {
     );
   }
 
+  /// `Calories (high to low)`
+  String get diarySortByKcal {
+    return Intl.message(
+      'Calories (high to low)',
+      name: 'diarySortByKcal',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Day`
   String get nutrientPanelDayLabel {
     return Intl.message(
@@ -2372,11 +2402,41 @@ class S {
     );
   }
 
+  /// `Protein (high to low)`
+  String get diarySortByProtein {
+    return Intl.message(
+      'Protein (high to low)',
+      name: 'diarySortByProtein',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Week`
   String get nutrientPanelWeekLabel {
     return Intl.message(
       'Week',
       name: 'nutrientPanelWeekLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Carbs (high to low)`
+  String get diarySortByCarbs {
+    return Intl.message(
+      'Carbs (high to low)',
+      name: 'diarySortByCarbs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fat (high to low)`
+  String get diarySortByFat {
+    return Intl.message(
+      'Fat (high to low)',
+      name: 'diarySortByFat',
       desc: '',
       args: [],
     );

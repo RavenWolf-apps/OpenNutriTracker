@@ -1078,5 +1078,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "weightLabel": MessageLookupByLibrary.simpleMessage("Hmotnost"),
         "yearsLabel": m3,
         "zincLabel": MessageLookupByLibrary.simpleMessage("zinek"),
+        "diarySortByCarbs":
+            MessageLookupByLibrary.simpleMessage("Sacharidy (sestupně)"),
+        "diarySortByFat":
+            MessageLookupByLibrary.simpleMessage("Tuky (sestupně)"),
+        "diarySortByKcal":
+            MessageLookupByLibrary.simpleMessage("Kalorie (sestupně)"),
+        "diarySortByLabel":
+            MessageLookupByLibrary.simpleMessage("Řadit podle"),
+        "diarySortByProtein":
+            MessageLookupByLibrary.simpleMessage("Bílkoviny (sestupně)"),
+        "diarySortByTime":
+            MessageLookupByLibrary.simpleMessage("Času přidání"),
       };
 }

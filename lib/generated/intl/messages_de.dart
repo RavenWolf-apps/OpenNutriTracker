@@ -1101,5 +1101,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "weightLabel": MessageLookupByLibrary.simpleMessage("Gewicht"),
         "yearsLabel": m3,
         "zincLabel": MessageLookupByLibrary.simpleMessage("Zink"),
+        "diarySortByCarbs":
+            MessageLookupByLibrary.simpleMessage("Kohlenhydrate (absteigend)"),
+        "diarySortByFat":
+            MessageLookupByLibrary.simpleMessage("Fett (absteigend)"),
+        "diarySortByKcal":
+            MessageLookupByLibrary.simpleMessage("Kalorien (absteigend)"),
+        "diarySortByLabel":
+            MessageLookupByLibrary.simpleMessage("Sortieren nach"),
+        "diarySortByProtein":
+            MessageLookupByLibrary.simpleMessage("Protein (absteigend)"),
+        "diarySortByTime":
+            MessageLookupByLibrary.simpleMessage("Hinzugefügt am"),
       };
 }

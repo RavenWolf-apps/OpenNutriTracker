@@ -1066,5 +1066,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "weightLabel": MessageLookupByLibrary.simpleMessage("Kilo"),
         "yearsLabel": m3,
         "zincLabel": MessageLookupByLibrary.simpleMessage("çinko"),
+        "diarySortByCarbs":
+            MessageLookupByLibrary.simpleMessage("Karbonhidrat (çoktan aza)"),
+        "diarySortByFat":
+            MessageLookupByLibrary.simpleMessage("Yağ (çoktan aza)"),
+        "diarySortByKcal":
+            MessageLookupByLibrary.simpleMessage("Kalori (çoktan aza)"),
+        "diarySortByLabel": MessageLookupByLibrary.simpleMessage("Sırala"),
+        "diarySortByProtein":
+            MessageLookupByLibrary.simpleMessage("Protein (çoktan aza)"),
+        "diarySortByTime":
+            MessageLookupByLibrary.simpleMessage("Eklenme zamanı"),
       };
 }
