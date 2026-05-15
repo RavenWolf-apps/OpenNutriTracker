@@ -76,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m26(hour, minute) => "${hour}:${minute}";
 
+  static String mLowKcal(threshold) =>
+      "在没有医疗指导的情况下，成年人不宜长期每天摄入低于 ${threshold} 千卡的热量。在维持这么低的目标之前，请考虑咨询医疗专业人员。";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activityExample":
@@ -195,9 +198,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("每日卡路里调整："),
         "dailyKjAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("每日千焦调整："),
-        "dataCollectionLabel":
-            MessageLookupByLibrary.simpleMessage("通过提供匿名使用数据支持开发"),
+        "dataCollectionLabel": MessageLookupByLibrary.simpleMessage(
+            "发送匿名崩溃报告以帮助修复错误。不包含饮食记录、体重或个人数据。"),
         "deleteAllLabel": MessageLookupByLibrary.simpleMessage("删除全部"),
+        "settingsDeleteAllDataLabel":
+            MessageLookupByLibrary.simpleMessage("删除我的所有数据"),
+        "settingsDeleteAllDataSubtitle":
+            MessageLookupByLibrary.simpleMessage("个人资料、饮食、活动和体重历史"),
+        "settingsDeleteAllDataConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("删除您的所有数据？"),
+        "settingsDeleteAllDataConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "此操作将永久从此设备移除您的个人资料、饮食记录、活动记录、体重历史以及所有自定义食谱。Open Food Facts 与 USDA Food Data Central 数据库不受影响。此操作无法撤销。"),
+        "settingsDeleteAllDataConfirmAction":
+            MessageLookupByLibrary.simpleMessage("全部删除"),
+        "lowKcalWarningTitle":
+            MessageLookupByLibrary.simpleMessage("此每日目标偏低"),
+        "lowKcalWarningBody": mLowKcal,
+        "lowKcalWarningViewDisclaimer":
+            MessageLookupByLibrary.simpleMessage("查看免责声明"),
         "deleteSelectedRecipesConfirmTitle": m18,
         "deleteTimeDialogContent":
             MessageLookupByLibrary.simpleMessage("您想删除选定的项目吗？"),

@@ -195,8 +195,23 @@
   "customMealsEmptyLabel": "Nessun pasto personalizzato salvato.",
   "dailyKcalAdjustmentLabel": "Regolazione kcal giornaliere:",
   "dailyKjAdjustmentLabel": "Regolazione kJ giornalieri:",
-  "dataCollectionLabel": "Supporta lo sviluppo inviando dati di utilizzo anonimi",
+  "dataCollectionLabel": "Invia segnalazioni di arresto anonime per aiutarci a correggere i bug. Non vengono inclusi diario alimentare, peso o dati personali.",
   "deleteAllLabel": "Elimina tutto",
+  "settingsDeleteAllDataLabel": "Elimina tutti i miei dati",
+  "settingsDeleteAllDataSubtitle": "Profilo, pasti, attività e cronologia del peso",
+  "settingsDeleteAllDataConfirmTitle": "Eliminare tutti i tuoi dati?",
+  "settingsDeleteAllDataConfirmContent": "Questa operazione rimuove in modo permanente da questo dispositivo il tuo profilo, i pasti, le attività, la cronologia del peso e tutte le ricette personalizzate. I database di Open Food Facts e USDA Food Data Central non vengono modificati. L'operazione non può essere annullata.",
+  "settingsDeleteAllDataConfirmAction": "Elimina tutto",
+  "lowKcalWarningTitle": "Questo obiettivo giornaliero è piuttosto basso",
+  "lowKcalWarningBody": "Gli adulti non dovrebbero assumere meno di {threshold} kcal al giorno per periodi prolungati senza una guida medica. Valuta di parlare con un professionista sanitario prima di mantenere un obiettivo così basso.",
+  "@lowKcalWarningBody": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "lowKcalWarningViewDisclaimer": "Mostra avviso",
   "deleteSelectedRecipesConfirmTitle": "Eliminare {count} ricetta/e?",
   "deleteTimeDialogContent": "Vuoi eliminare l'alimento selezionato?",
   "deleteTimeDialogPluralContent": "Vuoi eliminare tutti gli elementi di questo pasto?",

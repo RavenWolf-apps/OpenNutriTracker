@@ -242,8 +242,23 @@
   "customMealsEmptyLabel": "Zatiaľ nie sú uložené žiadne vlastné jedlá.",
   "dailyKcalAdjustmentLabel": "Denná úprava kcal:",
   "dailyKjAdjustmentLabel": "Denná úprava kJ:",
-  "dataCollectionLabel": "Podporte vývoj poskytnutím anonymných údajov o používaní",
+  "dataCollectionLabel": "Posielať anonymné hlásenia o páde, aby sme mohli opravovať chyby. Nezahŕňajú sa žiadne záznamy o jedle, hmotnosti ani osobné údaje.",
   "deleteAllLabel": "Zmazať všetko",
+  "settingsDeleteAllDataLabel": "Zmazať všetky moje údaje",
+  "settingsDeleteAllDataSubtitle": "Profil, jedlá, aktivity a históriu hmotnosti",
+  "settingsDeleteAllDataConfirmTitle": "Zmazať všetky vaše údaje?",
+  "settingsDeleteAllDataConfirmContent": "Tým sa z tohto zariadenia natrvalo odstráni váš profil, jedlá, aktivity, história hmotnosti a všetky vlastné recepty. Databázy Open Food Facts a USDA Food Data Central tým nie sú ovplyvnené. Túto akciu nie je možné vrátiť späť.",
+  "settingsDeleteAllDataConfirmAction": "Zmazať všetko",
+  "lowKcalWarningTitle": "Tento denný cieľ je dosť nízky",
+  "lowKcalWarningBody": "Dospelí by bez lekárskeho dohľadu nemali dlhodobo prijímať menej než {threshold} kcal denne. Zvážte konzultáciu so zdravotníckym odborníkom skôr, než zostanete pri takomto nízkom cieli.",
+  "@lowKcalWarningBody": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "lowKcalWarningViewDisclaimer": "Zobraziť upozornenie",
   "deleteSelectedRecipesConfirmTitle": "Zmazať {count} recept(ov)?",
   "deleteTimeDialogContent": "Naozaj chcete zmazať vybranú položku?",
   "deleteTimeDialogPluralContent": "Naozaj chcete zmazať všetky položky tohto jedla?",

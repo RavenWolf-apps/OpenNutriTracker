@@ -79,6 +79,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m26(hour, minute) => "${hour}:${minute}";
 
+  static String mLowKcal(threshold) =>
+      "Дорослим без медичного нагляду не варто тривало споживати менше ніж ${threshold} ккал на день. Будь ласка, перш ніж залишати такий низький рівень, проконсультуйтеся з лікарем.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activityExample": MessageLookupByLibrary.simpleMessage(
@@ -206,8 +209,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "dailyKjAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("Щоденна корекція кДж:"),
         "dataCollectionLabel": MessageLookupByLibrary.simpleMessage(
-            "Підтримайте розробку, надаючи анонімні дані про використання"),
+            "Надсилати анонімні звіти про збої, щоб допомогти виправляти помилки. Жодні дані про їжу, вагу чи особисті дані не передаються."),
         "deleteAllLabel": MessageLookupByLibrary.simpleMessage("Видалити все"),
+        "settingsDeleteAllDataLabel": MessageLookupByLibrary.simpleMessage(
+            "Видалити всі мої дані"),
+        "settingsDeleteAllDataSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Профіль, прийоми їжі, активності та історію ваги"),
+        "settingsDeleteAllDataConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("Видалити всі ваші дані?"),
+        "settingsDeleteAllDataConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "Це остаточно видалить з цього пристрою ваш профіль, прийоми їжі, активності, історію ваги та всі власні рецепти. Бази Open Food Facts та USDA Food Data Central залишаться без змін. Цю дію не можна скасувати."),
+        "settingsDeleteAllDataConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Видалити все"),
+        "lowKcalWarningTitle": MessageLookupByLibrary.simpleMessage(
+            "Ця денна ціль доволі низька"),
+        "lowKcalWarningBody": mLowKcal,
+        "lowKcalWarningViewDisclaimer":
+            MessageLookupByLibrary.simpleMessage("Переглянути застереження"),
         "deleteSelectedRecipesConfirmTitle": m18,
         "deleteTimeDialogContent": MessageLookupByLibrary.simpleMessage(
             "Ви хочете видалити вибраний елемент?"),

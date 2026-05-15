@@ -79,6 +79,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m25(hour, minute) => "${hour}:${minute}";
 
+  static String m26(threshold) =>
+      "Most adults shouldn\'t eat fewer than ${threshold} kcal a day for any length of time without medical guidance. Please consider speaking with a healthcare professional before sticking with a target this low.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activityExample": MessageLookupByLibrary.simpleMessage(
@@ -169,8 +172,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "dailyKjAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("Daily kJ adjustment:"),
         "dataCollectionLabel": MessageLookupByLibrary.simpleMessage(
-            "Support development by providing anonymous usage data"),
+            "Send anonymous crash reports to help fix bugs. No food log, weight, or personal data is included."),
         "deleteAllLabel": MessageLookupByLibrary.simpleMessage("Delete all"),
+        "settingsDeleteAllDataLabel":
+            MessageLookupByLibrary.simpleMessage("Delete all my data"),
+        "settingsDeleteAllDataSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Profile, meals, activities and weight history"),
+        "settingsDeleteAllDataConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("Delete all your data?"),
+        "settingsDeleteAllDataConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "This permanently removes your profile, meals, activities, weight history and any custom recipes from this device. The Open Food Facts and USDA Food Data Central catalogues are not affected. This cannot be undone."),
+        "settingsDeleteAllDataConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Delete everything"),
+        "lowKcalWarningTitle": MessageLookupByLibrary.simpleMessage(
+            "This daily target is on the low side"),
+        "lowKcalWarningBody": m26,
+        "lowKcalWarningViewDisclaimer":
+            MessageLookupByLibrary.simpleMessage("View disclaimer"),
         "deleteTimeDialogContent": MessageLookupByLibrary.simpleMessage(
             "Do want to delete the selected item?"),
         "deleteTimeDialogPluralContent": MessageLookupByLibrary.simpleMessage(

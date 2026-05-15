@@ -195,8 +195,23 @@
   "customMealsEmptyLabel": "Ще немає збережених власних страв.",
   "dailyKcalAdjustmentLabel": "Щоденна корекція калорій:",
   "dailyKjAdjustmentLabel": "Щоденна корекція кДж:",
-  "dataCollectionLabel": "Підтримайте розробку, надаючи анонімні дані про використання",
+  "dataCollectionLabel": "Надсилати анонімні звіти про збої, щоб допомогти виправляти помилки. Жодні дані про їжу, вагу чи особисті дані не передаються.",
   "deleteAllLabel": "Видалити все",
+  "settingsDeleteAllDataLabel": "Видалити всі мої дані",
+  "settingsDeleteAllDataSubtitle": "Профіль, прийоми їжі, активності та історію ваги",
+  "settingsDeleteAllDataConfirmTitle": "Видалити всі ваші дані?",
+  "settingsDeleteAllDataConfirmContent": "Це остаточно видалить з цього пристрою ваш профіль, прийоми їжі, активності, історію ваги та всі власні рецепти. Бази Open Food Facts та USDA Food Data Central залишаться без змін. Цю дію не можна скасувати.",
+  "settingsDeleteAllDataConfirmAction": "Видалити все",
+  "lowKcalWarningTitle": "Ця денна ціль доволі низька",
+  "lowKcalWarningBody": "Дорослим без медичного нагляду не варто тривало споживати менше ніж {threshold} ккал на день. Будь ласка, перш ніж залишати такий низький рівень, проконсультуйтеся з лікарем.",
+  "@lowKcalWarningBody": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "lowKcalWarningViewDisclaimer": "Переглянути застереження",
   "deleteSelectedRecipesConfirmTitle": "Видалити {count} рецепт(ів)?",
   "deleteTimeDialogContent": "Ви хочете видалити вибраний елемент?",
   "deleteTimeDialogPluralContent": "Ви хочете видалити всі елементи цієї страви?",

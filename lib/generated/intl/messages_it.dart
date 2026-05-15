@@ -79,6 +79,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m26(hour, minute) => "${hour}:${minute}";
 
+  static String mLowKcal(threshold) =>
+      "Gli adulti non dovrebbero assumere meno di ${threshold} kcal al giorno per periodi prolungati senza una guida medica. Valuta di parlare con un professionista sanitario prima di mantenere un obiettivo così basso.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activityExample": MessageLookupByLibrary.simpleMessage(
@@ -208,8 +211,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "dailyKjAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("Regolazione kJ giornalieri:"),
         "dataCollectionLabel": MessageLookupByLibrary.simpleMessage(
-            "Supporta lo sviluppo inviando dati di utilizzo anonimi"),
+            "Invia segnalazioni di arresto anonime per aiutarci a correggere i bug. Non vengono inclusi diario alimentare, peso o dati personali."),
         "deleteAllLabel": MessageLookupByLibrary.simpleMessage("Elimina tutto"),
+        "settingsDeleteAllDataLabel": MessageLookupByLibrary.simpleMessage(
+            "Elimina tutti i miei dati"),
+        "settingsDeleteAllDataSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Profilo, pasti, attività e cronologia del peso"),
+        "settingsDeleteAllDataConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("Eliminare tutti i tuoi dati?"),
+        "settingsDeleteAllDataConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "Questa operazione rimuove in modo permanente da questo dispositivo il tuo profilo, i pasti, le attività, la cronologia del peso e tutte le ricette personalizzate. I database di Open Food Facts e USDA Food Data Central non vengono modificati. L'operazione non può essere annullata."),
+        "settingsDeleteAllDataConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Elimina tutto"),
+        "lowKcalWarningTitle": MessageLookupByLibrary.simpleMessage(
+            "Questo obiettivo giornaliero è piuttosto basso"),
+        "lowKcalWarningBody": mLowKcal,
+        "lowKcalWarningViewDisclaimer":
+            MessageLookupByLibrary.simpleMessage("Mostra avviso"),
         "deleteSelectedRecipesConfirmTitle": m18,
         "deleteTimeDialogContent": MessageLookupByLibrary.simpleMessage(
             "Vuoi eliminare l\'alimento selezionato?"),

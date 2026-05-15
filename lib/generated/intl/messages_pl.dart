@@ -79,6 +79,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m26(hour, minute) => "${hour}:${minute}";
 
+  static String mLowKcal(threshold) =>
+      "Osoby dorosłe nie powinny przez dłuższy czas spożywać mniej niż ${threshold} kcal dziennie bez nadzoru lekarza. Zanim utrzymasz tak niski cel, rozważ konsultację ze specjalistą.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "activityExample": MessageLookupByLibrary.simpleMessage(
@@ -206,8 +209,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "dailyKjAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("Dzienna korekta kJ:"),
         "dataCollectionLabel": MessageLookupByLibrary.simpleMessage(
-            "Wspieraj rozwój, dostarczając anonimowe dane użytkowania"),
+            "Wysyłaj anonimowe raporty o awariach, aby pomóc w naprawianiu błędów. Nie są przesyłane dane o posiłkach, wadze ani dane osobowe."),
         "deleteAllLabel": MessageLookupByLibrary.simpleMessage("Usuń wszystko"),
+        "settingsDeleteAllDataLabel": MessageLookupByLibrary.simpleMessage(
+            "Usuń wszystkie moje dane"),
+        "settingsDeleteAllDataSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Profil, posiłki, aktywność i historia wagi"),
+        "settingsDeleteAllDataConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("Usunąć wszystkie Twoje dane?"),
+        "settingsDeleteAllDataConfirmContent": MessageLookupByLibrary.simpleMessage(
+            "Spowoduje to trwałe usunięcie z tego urządzenia Twojego profilu, posiłków, aktywności, historii wagi oraz wszystkich własnych przepisów. Bazy danych Open Food Facts i USDA Food Data Central pozostają nienaruszone. Tej operacji nie można cofnąć."),
+        "settingsDeleteAllDataConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Usuń wszystko"),
+        "lowKcalWarningTitle": MessageLookupByLibrary.simpleMessage(
+            "Ten dzienny cel jest dość niski"),
+        "lowKcalWarningBody": mLowKcal,
+        "lowKcalWarningViewDisclaimer":
+            MessageLookupByLibrary.simpleMessage("Pokaż zastrzeżenie"),
         "deleteSelectedRecipesConfirmTitle": m18,
         "deleteTimeDialogContent": MessageLookupByLibrary.simpleMessage(
             "Czy chcesz usunąć wybraną pozycję?"),
