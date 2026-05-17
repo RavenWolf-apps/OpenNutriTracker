@@ -485,6 +485,106 @@ jobs:
           disable-animations: true
           script: flutter test integration_test/ --reporter expanded
 
+  ios-deploy:
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      github.event_name == 'workflow_dispatch'
+    needs:
+      - linux-checks
+      - ios-build
+      - ios-integration-tests
+      - android-build
+      - android-integration-tests
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    env:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+      BUNDLE_GEMFILE: ${{ github.workspace }}/ios/Gemfile
+      MATCH_READONLY: 'true'
+      MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL != '' && secrets.MATCH_GIT_URL }}
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+      APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      APP_STORE_CONNECT_API_KEY_P8: ${{ secrets.APP_STORE_CONNECT_API_KEY_P8 }}
+      APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: 'true'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.7'
+          channel: 'stable'
+          cache: true
+
+      - name: Setup Ruby + Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Load SSH key for match repository
+        if: startsWith(env.MATCH_GIT_URL, 'git@')
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.MATCH_GIT_SSH_PRIVATE_KEY }}
+
+      - name: Trust GitHub SSH host key
+        if: startsWith(env.MATCH_GIT_URL, 'git@')
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Cache Flutter packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-cache-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-cache-
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install FVM
+        run: |
+          dart pub global activate fvm
+          echo "$HOME/.pub-cache/bin" >> "$GITHUB_PATH"
+
+      - name: Install Flutter version for FVM
+        run: fvm install 3.41.7
+
+      - name: Generate stub .env for CI
+        run: |
+          cat > .env <<'EOF'
+          FDC_API_KEY="ci-stub"
+          SENTRY_DNS="https://stub@sentry.io/0"
+          SUPABASE_PROJECT_URL="https://stub.supabase.co"
+          SUPABASE_PROJECT_ANON_KEY="ci-stub"
+          EOF
+
+      - name: Install Flutter packages
+        run: flutter pub get
+
+      - name: Generate code
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      - name: Install CocoaPods dependencies
+        working-directory: ios
+        run: bundle exec pod install
+
+      - name: Deploy iOS build to TestFlight via Fastlane
+        working-directory: ios
+        run: bundle exec fastlane ios beta
+
 # Historical reference — the original single-step `just ci` invocation that
 # was used before this workflow was split into linux-checks + ios-build.
 # Kept here so reviewers can see how the secrets-templated form would look

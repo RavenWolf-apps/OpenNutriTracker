@@ -59,3 +59,6 @@ result
 # Hive test artefacts
 *.hive
 *.lock
+
+# Fastlane / Bundler — local gem install path (bundle config set path vendor/bundle)
+ios/vendor/
