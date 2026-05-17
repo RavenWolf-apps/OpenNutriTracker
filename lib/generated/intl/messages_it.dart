@@ -86,7 +86,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String mLogWaterAmount(amount) => "Aggiungi ${amount} ml";
 
+  static String mMergeConfirm(loser, winner) =>
+      "Tutte le voci registrate con ${loser} verranno sostituite e mostrate come ${winner}, e ${loser} sarà rimosso dai tuoi alimenti personalizzati. Questa operazione non può essere annullata.";
+
+  static String mMergeSuccess(count, winner) =>
+      "Uniti — ${winner} ora ha ${count} voci registrate.";
   static String mDriRef(value) => "rif. ${value}";
+  static String mMergeOneIt(winner) => "Unito — ${winner} ora ha 1 voce registrata.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -212,6 +218,23 @@ class MessageLookup extends MessageLookupByLibrary {
             "Eliminare il pasto personalizzato?"),
         "customMealsEmptyLabel": MessageLookupByLibrary.simpleMessage(
             "Nessun pasto personalizzato salvato."),
+        "customMealsRowMoreTooltip":
+            MessageLookupByLibrary.simpleMessage("Altre azioni"),
+        "customMealsMergeAction": MessageLookupByLibrary.simpleMessage(
+            "Unisci a un altro alimento personalizzato"),
+        "customMealsMergePickerTitle": MessageLookupByLibrary.simpleMessage(
+            "Scegli l\'alimento personalizzato da unire"),
+        "customMealsMergeChooseSurvivorTitle":
+            MessageLookupByLibrary.simpleMessage("Quale rimane?"),
+        "customMealsMergeContinueAction":
+            MessageLookupByLibrary.simpleMessage("Continua"),
+        "customMealsMergeConfirmTitle": MessageLookupByLibrary.simpleMessage(
+            "Unire gli alimenti personalizzati?"),
+        "customMealsMergeConfirmContent": mMergeConfirm,
+        "customMealsMergeConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Unisci"),
+                "customMealsMergeSuccessSnackbarOne": mMergeOneIt,
+        "customMealsMergeSuccessSnackbarOther": mMergeSuccess,
         "dailyKcalAdjustmentLabel": MessageLookupByLibrary.simpleMessage(
             "Regolazione kcal giornaliere:"),
         "dailyKjAdjustmentLabel":

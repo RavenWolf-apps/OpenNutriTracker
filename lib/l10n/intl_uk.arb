@@ -872,5 +872,30 @@
   "settingsWaterGoalDescription": "Використовується індикатором води на головному екрані.",
   "settingsWaterGoalLabel": "Денна ціль вживання води",
   "waterChipLabel": "{current} / {goal} мл",
-  "zincLabel": "цинк"
+  "zincLabel": "цинк",
+  "customMealsRowMoreTooltip": "Більше дій",
+  "customMealsMergeAction": "Об’єднати з іншою власною стравою",
+  "customMealsMergePickerTitle": "Виберіть власну страву для об’єднання",
+  "customMealsMergeChooseSurvivorTitle": "Яка залишається?",
+  "customMealsMergeContinueAction": "Продовжити",
+  "customMealsMergeConfirmTitle": "Об’єднати власні страви?",
+  "customMealsMergeConfirmContent": "Це замінить усі записи, додані з {loser}, щоб вони показували {winner}, і видалить {loser} з ваших власних страв. Цю дію не можна скасувати.",
+  "@customMealsMergeConfirmContent": {
+    "placeholders": {
+      "loser": { "type": "String" },
+      "winner": { "type": "String" }
+    }
+  },
+  "customMealsMergeConfirmAction": "Об’єднати",
+  "customMealsMergeSuccessSnackbarOne": "Об'єднано — {winner} тепер має 1 запис.",
+  "@customMealsMergeSuccessSnackbarOne": {
+    "placeholders": { "winner": { "type": "String" } }
+  },
+  "customMealsMergeSuccessSnackbarOther": "Об'єднано — {winner} тепер має {count} записів.",
+  "@customMealsMergeSuccessSnackbarOther": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "winner": { "type": "String" }
+    }
+  }
 }

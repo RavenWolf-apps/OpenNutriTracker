@@ -88,7 +88,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String mLogWaterAmount(amount) => "${amount} ml hinzufügen";
 
+  static String mMergeConfirm(loser, winner) =>
+      "Dadurch werden alle Einträge, die mit ${loser} protokolliert wurden, ersetzt, sodass sie ${winner} anzeigen. Außerdem wird ${loser} aus deinen eigenen Mahlzeiten entfernt. Das kann nicht rückgängig gemacht werden.";
+
+  static String mMergeSuccess(count, winner) =>
+      "Zusammengeführt — ${winner} hat jetzt ${count} protokollierte Einträge.";
   static String mDriRef(value) => "Ref. ${value}";
+  static String mMergeOneDe(winner) => "Zusammengeführt — ${winner} hat jetzt 1 Eintrag.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -214,6 +220,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Eigene Mahlzeit löschen?"),
         "customMealsEmptyLabel": MessageLookupByLibrary.simpleMessage(
             "Noch keine eigenen Mahlzeiten gespeichert."),
+        "customMealsRowMoreTooltip":
+            MessageLookupByLibrary.simpleMessage("Weitere Aktionen"),
+        "customMealsMergeAction": MessageLookupByLibrary.simpleMessage(
+            "Mit einer anderen eigenen Mahlzeit zusammenführen"),
+        "customMealsMergePickerTitle": MessageLookupByLibrary.simpleMessage(
+            "Wähle die eigene Mahlzeit zum Zusammenführen"),
+        "customMealsMergeChooseSurvivorTitle":
+            MessageLookupByLibrary.simpleMessage("Welche bleibt?"),
+        "customMealsMergeContinueAction":
+            MessageLookupByLibrary.simpleMessage("Weiter"),
+        "customMealsMergeConfirmTitle": MessageLookupByLibrary.simpleMessage(
+            "Eigene Mahlzeiten zusammenführen?"),
+        "customMealsMergeConfirmContent": mMergeConfirm,
+        "customMealsMergeConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Zusammenführen"),
+                "customMealsMergeSuccessSnackbarOne": mMergeOneDe,
+        "customMealsMergeSuccessSnackbarOther": mMergeSuccess,
         "dailyKcalAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("Tägliche kcal-Anpassung:"),
         "dailyKjAdjustmentLabel":

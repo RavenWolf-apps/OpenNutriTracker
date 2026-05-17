@@ -903,5 +903,30 @@
   "settingsWaterGoalDescription": "Wird vom Wasser-Chip auf dem Startbildschirm verwendet.",
   "settingsWaterGoalLabel": "Tägliches Wasserziel",
   "waterChipLabel": "{current} / {goal} ml",
-  "zincLabel": "Zink"
+  "zincLabel": "Zink",
+  "customMealsRowMoreTooltip": "Weitere Aktionen",
+  "customMealsMergeAction": "Mit einer anderen eigenen Mahlzeit zusammenführen",
+  "customMealsMergePickerTitle": "Wähle die eigene Mahlzeit zum Zusammenführen",
+  "customMealsMergeChooseSurvivorTitle": "Welche bleibt?",
+  "customMealsMergeContinueAction": "Weiter",
+  "customMealsMergeConfirmTitle": "Eigene Mahlzeiten zusammenführen?",
+  "customMealsMergeConfirmContent": "Dadurch werden alle Einträge, die mit {loser} protokolliert wurden, ersetzt, sodass sie {winner} anzeigen. Außerdem wird {loser} aus deinen eigenen Mahlzeiten entfernt. Das kann nicht rückgängig gemacht werden.",
+  "@customMealsMergeConfirmContent": {
+    "placeholders": {
+      "loser": { "type": "String" },
+      "winner": { "type": "String" }
+    }
+  },
+  "customMealsMergeConfirmAction": "Zusammenführen",
+  "customMealsMergeSuccessSnackbarOne": "Zusammengeführt — {winner} hat jetzt 1 Eintrag.",
+  "@customMealsMergeSuccessSnackbarOne": {
+    "placeholders": { "winner": { "type": "String" } }
+  },
+  "customMealsMergeSuccessSnackbarOther": "Zusammengeführt — {winner} hat jetzt {count} Einträge.",
+  "@customMealsMergeSuccessSnackbarOther": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "winner": { "type": "String" }
+    }
+  }
 }

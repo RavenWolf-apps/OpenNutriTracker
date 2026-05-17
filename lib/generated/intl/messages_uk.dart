@@ -86,7 +86,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String mLogWaterAmount(amount) => "Додати ${amount} мл";
 
+  static String mMergeConfirm(loser, winner) =>
+      "Це замінить усі записи, додані з ${loser}, щоб вони показували ${winner}, і видалить ${loser} з ваших власних страв. Цю дію не можна скасувати.";
+
+  static String mMergeSuccess(count, winner) =>
+      "Об’єднано — ${winner} тепер має ${count} записів.";
   static String mDriRef(value) => "орієнт. ${value}";
+  static String mMergeOneUk(winner) => "Об'єднано — ${winner} тепер має 1 запис.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -210,6 +216,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Видалити власну страву?"),
         "customMealsEmptyLabel": MessageLookupByLibrary.simpleMessage(
             "Ще немає збережених власних страв."),
+        "customMealsRowMoreTooltip":
+            MessageLookupByLibrary.simpleMessage("Більше дій"),
+        "customMealsMergeAction": MessageLookupByLibrary.simpleMessage(
+            "Об’єднати з іншою власною стравою"),
+        "customMealsMergePickerTitle": MessageLookupByLibrary.simpleMessage(
+            "Виберіть власну страву для об’єднання"),
+        "customMealsMergeChooseSurvivorTitle":
+            MessageLookupByLibrary.simpleMessage("Яка залишається?"),
+        "customMealsMergeContinueAction":
+            MessageLookupByLibrary.simpleMessage("Продовжити"),
+        "customMealsMergeConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("Об’єднати власні страви?"),
+        "customMealsMergeConfirmContent": mMergeConfirm,
+        "customMealsMergeConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Об’єднати"),
+                "customMealsMergeSuccessSnackbarOne": mMergeOneUk,
+        "customMealsMergeSuccessSnackbarOther": mMergeSuccess,
         "dailyKcalAdjustmentLabel":
             MessageLookupByLibrary.simpleMessage("Щоденна корекція калорій:"),
         "dailyKjAdjustmentLabel":

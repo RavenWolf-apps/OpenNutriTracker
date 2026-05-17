@@ -85,7 +85,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String mLogWaterAmount(amount) => "Add ${amount} ml";
 
+  static String mMergeConfirm(loser, winner) =>
+      "This will replace all entries logged with ${loser} so they show ${winner} instead, and remove ${loser} from your custom foods. This can\'t be undone.";
+
+  static String mMergeSuccess(count, winner) =>
+      "Merged — ${winner} now has ${count} logged entries.";
   static String mDriRef(value) => "ref ${value}";
+  static String mMergeOneEn(winner) => "Merged — ${winner} now has 1 logged entry.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -302,6 +308,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Delete custom meal?"),
         "customMealsEmptyLabel":
             MessageLookupByLibrary.simpleMessage("No custom meals saved yet."),
+        "customMealsRowMoreTooltip":
+            MessageLookupByLibrary.simpleMessage("More actions"),
+        "customMealsMergeAction": MessageLookupByLibrary.simpleMessage(
+            "Merge with another custom food"),
+        "customMealsMergePickerTitle": MessageLookupByLibrary.simpleMessage(
+            "Pick the custom food to merge with"),
+        "customMealsMergeChooseSurvivorTitle":
+            MessageLookupByLibrary.simpleMessage("Which one stays?"),
+        "customMealsMergeContinueAction":
+            MessageLookupByLibrary.simpleMessage("Continue"),
+        "customMealsMergeConfirmTitle":
+            MessageLookupByLibrary.simpleMessage("Merge custom foods?"),
+        "customMealsMergeConfirmContent": mMergeConfirm,
+        "customMealsMergeConfirmAction":
+            MessageLookupByLibrary.simpleMessage("Merge"),
+                "customMealsMergeSuccessSnackbarOne": mMergeOneEn,
+        "customMealsMergeSuccessSnackbarOther": mMergeSuccess,
         "ironLabel": MessageLookupByLibrary.simpleMessage("iron"),
         "magnesiumLabel": MessageLookupByLibrary.simpleMessage("magnesium"),
         "micronutrientsLabel": MessageLookupByLibrary.simpleMessage("Micronutrients"),
