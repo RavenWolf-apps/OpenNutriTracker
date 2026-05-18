@@ -573,7 +573,7 @@ jobs:
           : "${SENTRY_DNS:?Missing SENTRY_DNS secret}"
           : "${SUPABASE_PROJECT_URL:?Missing SUPABASE_PROJECT_URL secret}"
           : "${SUPABASE_PROJECT_ANON_KEY:?Missing SUPABASE_PROJECT_ANON_KEY secret}"
-          cat > .env <<'EOF'
+          cat > .env <<EOF
           FDC_API_KEY="$FDC_API_KEY"
           SENTRY_DNS="$SENTRY_DNS"
           SUPABASE_PROJECT_URL="$SUPABASE_PROJECT_URL"
@@ -593,6 +593,13 @@ jobs:
       - name: Deploy iOS build to TestFlight via Fastlane
         working-directory: ios
         run: bundle exec fastlane ios beta
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa
+          path: build/ios/ipa/*.ipa
+          if-no-files-found: error
 
   android-deploy:
     if: |
@@ -659,7 +666,7 @@ jobs:
           : "${SENTRY_DNS:?Missing SENTRY_DNS secret}"
           : "${SUPABASE_PROJECT_URL:?Missing SUPABASE_PROJECT_URL secret}"
           : "${SUPABASE_PROJECT_ANON_KEY:?Missing SUPABASE_PROJECT_ANON_KEY secret}"
-          cat > .env <<'EOF'
+          cat > .env <<EOF
           FDC_API_KEY="$FDC_API_KEY"
           SENTRY_DNS="$SENTRY_DNS"
           SUPABASE_PROJECT_URL="$SUPABASE_PROJECT_URL"
@@ -690,11 +697,78 @@ jobs:
       - name: Build Android App Bundle
         run: flutter build appbundle --release
 
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      - name: Upload Android AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
+
+      - name: Upload Android APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+
       - name: Upload Android App Bundle to Google Play Internal Testing via Fastlane
         working-directory: android
         run: bundle exec fastlane android internal
         env:
           ANDROID_AAB_PATH: ${{ github.workspace }}/build/app/outputs/bundle/release/app-release.aab
+
+  github-release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs:
+      - ios-deploy
+      - android-deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download iOS IPA artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ios-ipa
+          path: release-assets/ios
+
+      - name: Download Android AAB artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: android-aab
+          path: release-assets/android
+
+      - name: Download Android APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apk
+          path: release-assets/android
+
+      - name: Prepare release tag and asset names
+        run: |
+          APP_VERSION=$(awk '/^version:/ {print $2}' pubspec.yaml)
+          TAG_NAME="v${APP_VERSION}-build.${GITHUB_RUN_NUMBER}"
+          echo "TAG_NAME=$TAG_NAME" >> "$GITHUB_ENV"
+
+          IPA_PATH=$(ls -1 release-assets/ios/*.ipa | head -n 1)
+          cp "$IPA_PATH" release-assets/opennutritracker.ipa
+
+      - name: Create GitHub release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          generate_release_notes: true
+          files: |
+            release-assets/opennutritracker.ipa
+            release-assets/android/app-release.aab
+            release-assets/android/app-release.apk
 
 # Historical reference — the original single-step `just ci` invocation that
 # was used before this workflow was split into linux-checks + ios-build.
