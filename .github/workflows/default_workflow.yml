@@ -489,7 +489,6 @@ jobs:
     if: |
       (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
       github.event_name == 'workflow_dispatch'
-    needs: []
 #    needs:
 #      - linux-checks
 #      - ios-build
@@ -503,6 +502,10 @@ jobs:
       LANG: en_US.UTF-8
       LC_ALL: en_US.UTF-8
       BUNDLE_GEMFILE: ${{ github.workspace }}/ios/Gemfile
+      FDC_API_KEY: ${{ secrets.FDC_API_KEY }}
+      SENTRY_DNS: ${{ secrets.SENTRY_DNS }}
+      SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
+      SUPABASE_PROJECT_ANON_KEY: ${{ secrets.SUPABASE_PROJECT_ANON_KEY }}
       MATCH_READONLY: 'true'
       MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL != '' && secrets.MATCH_GIT_URL }}
       MATCH_GIT_SSH_PRIVATE_KEY: ${{ secrets.MATCH_GIT_SSH_PRIVATE_KEY }}
@@ -564,13 +567,17 @@ jobs:
       - name: Install Flutter version for FVM
         run: fvm install 3.41.7
 
-      - name: Generate stub .env for CI
+      - name: Generate .env from GitHub Secrets
         run: |
+          : "${FDC_API_KEY:?Missing FDC_API_KEY secret}"
+          : "${SENTRY_DNS:?Missing SENTRY_DNS secret}"
+          : "${SUPABASE_PROJECT_URL:?Missing SUPABASE_PROJECT_URL secret}"
+          : "${SUPABASE_PROJECT_ANON_KEY:?Missing SUPABASE_PROJECT_ANON_KEY secret}"
           cat > .env <<'EOF'
-          FDC_API_KEY="ci-stub"
-          SENTRY_DNS="https://stub@sentry.io/0"
-          SUPABASE_PROJECT_URL="https://stub.supabase.co"
-          SUPABASE_PROJECT_ANON_KEY="ci-stub"
+          FDC_API_KEY="$FDC_API_KEY"
+          SENTRY_DNS="$SENTRY_DNS"
+          SUPABASE_PROJECT_URL="$SUPABASE_PROJECT_URL"
+          SUPABASE_PROJECT_ANON_KEY="$SUPABASE_PROJECT_ANON_KEY"
           EOF
 
       - name: Install Flutter packages
