@@ -730,8 +730,11 @@ jobs:
       - name: Prepare release tag and asset names
         run: |
           APP_VERSION=$(awk '/^version:/ {print $2}' pubspec.yaml)
-          TAG_NAME="v${APP_VERSION}-build.${GITHUB_RUN_NUMBER}"
+          VERSION_NO_BUILD="${APP_VERSION%+*}"
+          TAG_NAME="v${VERSION_NO_BUILD}"
+          RELEASE_NAME="Release v${VERSION_NO_BUILD} (build ${GITHUB_RUN_NUMBER})"
           echo "TAG_NAME=$TAG_NAME" >> "$GITHUB_ENV"
+          echo "RELEASE_NAME=$RELEASE_NAME" >> "$GITHUB_ENV"
 
           IPA_PATH=$(ls -1 release-assets/ios/*.ipa | head -n 1)
           cp "$IPA_PATH" release-assets/opennutritracker.ipa
@@ -740,7 +743,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.TAG_NAME }}
-          name: Release ${{ env.TAG_NAME }}
+          name: ${{ env.RELEASE_NAME }}
           generate_release_notes: true
           files: |
             release-assets/opennutritracker.ipa
