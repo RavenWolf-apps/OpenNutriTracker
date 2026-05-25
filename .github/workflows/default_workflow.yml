@@ -247,7 +247,15 @@ jobs:
     # serialised ~6-11 min of build in front of it. The cost is one extra
     # macOS build when the app doesn't compile, which this job's own build
     # surfaces regardless.
-    runs-on: macos-26
+    #
+    # TEMPORARY (debug): pinned to macos-15 instead of macos-26. On macos-26
+    # the app builds and launches on the iPhone 17 Pro / iOS 26.4.1 simulator
+    # but Flutter then hangs on "Waiting for VM Service port to be available"
+    # — the Dart VM-service handshake never completes, so the test never
+    # starts (Android runs the same suite green). macos-15 ships an Xcode 16 /
+    # iOS 18 simulator this Flutter fully supports; this run tells us whether
+    # the cause is the bleeding-edge simulator (environment) or a repo change.
+    runs-on: macos-15
     # Bound the job so a hung test fails fast rather than drifting toward
     # GitHub's 6-hour default. A healthy run is the ~11-12 min Xcode build
     # plus a few minutes of tests, so 30 leaves comfortable headroom.
