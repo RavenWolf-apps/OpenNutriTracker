@@ -73,7 +73,7 @@ void main() {
       expect(resolveFoodEmoji('strawberries'), '🍓');
       expect(resolveFoodEmoji('potatoes'), '🥔');
       expect(resolveFoodEmoji('tomatoes'), '🍅');
-      expect(resolveFoodEmoji('fungi'), '🍄‍🟫');
+      expect(resolveFoodEmoji('fungi'), '🍄');
     });
   });
 

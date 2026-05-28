@@ -84,15 +84,14 @@ const Map<String, List<String>> _emojiToNouns = {
   '🍃': ['spinach', 'kale', 'rucola', 'arugula', 'collard green'],
   '🥒': ['cucumber', 'pickle', 'zucchini', 'courgette'],
   '🌶️': ['pepper', 'chili'],
-  '🍄‍🟫': ['mushroom', 'fungus', 'fungi', 'truffle'],
+  '🍄': ['mushroom', 'fungus', 'fungi', 'truffle'],
   '🍆': ['eggplant', 'aubergine'],
   '🎃': ['squash', 'pumpkin', 'pumpkin flour'],
   '🥑': ['avocado', 'guacamole'],
-  '🟢': ['pea'],
+  '🟢': ['pea', 'pod', 'edamame', 'fava bean', 'soybean', 'soybean flour', 'pea flour'],
   '🫘': ['bean', 'red bean', 'black bean', 'lima bean', 'chickpea', 'mung bean', 'lentil'],
   '🎍': ['bamboo shoot', 'asparagus'],
   '🌱': ['sprout', 'microgreen'],
-  '🫛': ['pod', 'edamame', 'fava bean', 'soybean', 'soybean flour', 'pea flour'],
 
   // fruit
   '🍎': ['apple', 'fruit salad'],
@@ -155,7 +154,11 @@ const Map<String, List<String>> _emojiToNouns = {
   '☕': ['coffee'],
   '🍵': ['tea'],
   '💧': ['water'],
-  '🧃': ['juice', 'orange juice', 'apple juice', 'grape juice', 'grapefruit juice', 'vegetable juice', 'lemon juice', 'lime juice', 'cherry juice', 'fruit juice', 'carrot juice', 'blackberry juice', 'blueberry juice', 'strawberry juice', 'tomato juice', 'cranberry juice'],
+  '🧃': [
+    'juice', 'orange juice', 'apple juice', 'grape juice', 'grapefruit juice', 'vegetable juice',
+    'lemon juice', 'lime juice', 'cherry juice', 'fruit juice', 'carrot juice', 'blackberry juice',
+    'blueberry juice', 'strawberry juice', 'tomato juice', 'cranberry juice',
+  ],
   '🥤': ['soda', 'milkshake', 'beverage'],
   '🍺': ['beer'],
   '🍷': ['wine'],
@@ -169,7 +172,7 @@ const Map<String, List<String>> _emojiToNouns = {
   // condiments + others
   '🧂': ['salt'],
   '🥫': ['sauce', 'condiment', 'ketchup'],
-  '🫚': ['spice', 'cinnamon', 'nutmeg', 'clove', 'cardamom', 'cumin', 'coriander', 'paprika', 'turmeric', 'ginger'],
+  '🌿': ['spice', 'cinnamon', 'nutmeg', 'clove', 'cardamom', 'cumin', 'coriander', 'paprika', 'turmeric', 'ginger'],
 };
 
 /// For each entry in [_emojiToNouns], yield the canonical noun plus its
